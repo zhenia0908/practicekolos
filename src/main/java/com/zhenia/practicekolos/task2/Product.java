@@ -1,14 +1,23 @@
 package com.zhenia.practicekolos.task2;
 
 public class Product {
-    private int price;
+    private double price;
     private String name;
+    private String kategory;
 
-    public int getPrice() {
+    public String getKategory() {
+        return kategory;
+    }
+
+    public void setKategory(String kategory) {
+        this.kategory = kategory;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -20,8 +29,10 @@ public class Product {
         this.name = name;
     }
 
-    public Product(int price, String name) {
+    public Product(double price, String name, String kategory) {
         this.price = price;
         this.name = name;
+        this.kategory = kategory;
     }
+    public Product(){}
 }

@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 public class Products {
-
+ArrayList<Product> listOfProducts = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/zhenia/practicekolos/task2/productsList"));
@@ -17,13 +18,13 @@ public class Products {
             bw.write(String.format("%-20s%-20s%n", "Категория", "Средняя цена"));
             while ((line = br.readLine()) != null) {
                 String[] res = line.split("\\s+");
-                String kategory = res[1];
+                Product product = new Product();
+                product.setName(res[0]);
+                product.setKategory(res[1]);
+                double price = Double.parseDouble(res[2]);
+                 product.setPrice(price);
 
-                 double price = Double.parseDouble(res[2]);
-                double quantity = Double.parseDouble(res[3]);
-                double middlePrice = price / quantity;
-
-                bw.write(String.format("%-20s%-20s%n", kategory, middlePrice));
+                bw.write(String.format("%-20s%-20s%n", setKategory));
 
             }
         } catch (Exception e) {

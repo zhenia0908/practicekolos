@@ -1,6 +1,7 @@
 package com.zhenia.practicekolos.task1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tester {
     /*1. Компоратор - всегда они равны(возвращаешь единицу)
@@ -15,18 +16,24 @@ public void removePatient(Pacient pacient){    listOfPacients.remove(pacient);
 }*/
 
     ArrayList<MedicalCard>cards = new ArrayList<>();
-     public void addPatient(Pacient pacient, Hospital hospital){
-         hospital.getListOfPacients() =
-       if(  listOfPacients.add(pacient)){
-           MedicalCard medicalCard = new MedicalCard();
-           cards.add(pacient.getMedicalCard());
-       }
-     }
-     public void removePatient(Pacient pacient){
-         listOfPacients.add(pacient);
-         if ( listOfPacients.remove(pacient)){
+     public Pacient addPatient(Pacient pacient, Hospital hospital){
+             //нам надо получить челиков которые есть в этой больнице
+         List<Pacient> listOfPatients = hospital.getListOfPacients();
+             listOfPatients.add(pacient);
+             if (listOfPatients.contains(pacient)) {
+                 MedicalCard medicalCard = new MedicalCard();
+                 pacient.setMedicalCard(medicalCard);
+             }    return pacient;
+         }
+
+
+     public Pacient removePatient(Pacient pacient, Hospital hospital){
+         List<Pacient> listOfPatients =  hospital.getListOfPacients();
+         listOfPatients.remove(pacient);
+         if ( listOfPatients.contains(pacient)){
              cards.remove(pacient.getMedicalCard());
          }
+        return pacient;
      }
 
 
@@ -38,10 +45,10 @@ Hospital hospital = new Hospital(1, "kulman 9", 1);
         Pacient pacient1 = new Pacient("Vania", "Ivanov", 30, "Google", "programist");
         Pacient pacient2 = new Pacient("Petia", "Ivanov", 31, "supermarket", "shop assistant");
         Pacient pacient3 = new Pacient("Igor", "Ivanov", 32, "Google", "programist");
-        tester.addPatient(pacient1);
-        tester.addPatient(pacient2);
-        tester.addPatient(pacient3);
-        tester.removePatient(pacient1);
+        tester.addPatient(pacient1, hospital);
+        tester.addPatient(pacient2, hospital);
+        tester.addPatient(pacient3, hospital);
+        tester.removePatient(pacient1, hospital);
         System.out.println(tester.cards);
 
     }

@@ -4,13 +4,15 @@ import java.util.Comparator;
 
 public class PacienNameComporator implements Comparator<Pacient> {
 
-    public int compare(Pacient o1, Pacient o2){
+    public int compare(Pacient o1, Pacient o2) {
+        int surnameChecking = o1.getSurname().compareTo(o2.getSurname());
 
-      if(o1.getName().compareTo(o2.getName()) == 1 ){
-           if( o1.getSurname().compareTo(o2.getSurname()) ==1){
-               System.out.println("This is the same person");
-           }
+        if (surnameChecking != 0) {
+            return surnameChecking;
         }
-        return 0;
+        return o1.getName().compareTo(o2.getName());
     }
 }
+
+
+
