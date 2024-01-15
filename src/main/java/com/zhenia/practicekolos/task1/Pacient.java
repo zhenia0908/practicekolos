@@ -6,7 +6,7 @@ public class Pacient {
     // имя, фамилия, медицинская карта, возраст, место работы, должность
     private String name;
     private String surname;
-    MedicalCard medicalCard;
+   private MedicalCard medicalCard;
     private int old;
     private String placeOfWork;
     private String jobTitle;

@@ -11,6 +11,6 @@ public class PacienNameComporator implements Comparator<Pacient> {
                System.out.println("This is the same person");
            }
         }
-        return 1;
+        return 0;
     }
 }

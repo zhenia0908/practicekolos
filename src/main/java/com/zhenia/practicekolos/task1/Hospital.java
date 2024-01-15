@@ -8,13 +8,23 @@ public class Hospital {
   private  int numberOfHospital;
    private String address;
    private int numberOfDepartments;
+    private ArrayList<Pacient> listOfPacients;
 
    public Hospital(int numberOfHospital, String address, int numberOfDepartments){
        this.numberOfHospital = numberOfHospital;
        this.address = address;
        this.numberOfDepartments = numberOfDepartments;
+       this.listOfPacients = new ArrayList<>();
    }
    public Hospital(){}
+
+    public ArrayList<Pacient> getListOfPacients() {
+        return listOfPacients;
+    }
+
+    public void setListOfPacients(ArrayList<Pacient> listOfPacients) {
+        this.listOfPacients = listOfPacients;
+    }
 
     public int getNumberOfHospital() {
         return numberOfHospital;
